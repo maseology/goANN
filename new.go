@@ -1,12 +1,9 @@
 package goann
 
-import (
-	"math/rand"
-	"time"
-)
+import "math/rand"
 
+// NewNet m: number of input nodes; n: nodes per hidden layer; nhl: number of hidden layers; p: number of output nodes
 func NewNet(m, n, p, nhl int, eta float64) Network {
-	rand.Seed(time.Now().UTC().UnixNano())
 	init := func() float64 { return .25 * (2.*rand.Float64() - 1.) }
 
 	if nhl > 1 { // "deep-learning"
