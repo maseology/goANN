@@ -16,7 +16,7 @@ Rather than abstracting the ANN as a set of matrices need solving, the ANN is bu
 
 As a test, the code provided on [sausheong.github.io](https://sausheong.github.io/posts/how-to-build-a-simple-artificial-neural-network-with-go/) is assumed a benchmark and the performance of goANN is compared against that. 
 
->**IT MUST BE STATED:** *that the author (me) acknowledges and assumes that no intention was made by the benchmark code developers to optimize their routine. There will likely be areas were the benchmark code could be made more efficient and so it is __NOT__ the objective here to make improvements to that code such that I can ensure the comparison made here is at all __Fair__.*
+>**IT MUST BE STATED:** *that the author (me) acknowledges and assumes that no intention was made by the benchmark code developers to optimize their routines. There will likely be areas were the benchmark code I'm testing against could have be made more efficient and so it is __NOT__ the objective here to make improvements to their code such that I can ensure the comparison made here is at all "Fair."*
 
 I'm just testing my code.
 
@@ -51,7 +51,7 @@ This purpose of the ANN developed here was to model continuos watershed runoff f
 The ANN structure is much different from benchmark test #1: while still only consisting of 1 hidden layer, there are only 3 hidden neurons used.  The inputs are lagged by three days and a neural network is "partially recurrent", in that the prediction made in a previous 3 passes is added as input to the next prediction. 
 
 $$
-    Q(t)=Q(t-1) + Q(t-2) +...+ Q(t-n) + R(t) + R(t-1) + ... + R(t-n) + f(\text{day of year})
+    Q(t)=Q(t-1) + Q(t-2) + ... + Q(t-n) + R(t) + R(t-1) + ... + R(t-n) + f(\text{day of year})
 $$
 
 As shown above, 3-day antecedent precipitation (i.e., $n=3$) is added to the input along a sinusoidal function ($f(\cdot)$) ranging from 0 to 1 at the winter and summer solstices, respectively. In all, there are $2n+1$ inputs and 1 output: Runoff.
@@ -71,6 +71,17 @@ Again, the average of 5 runs are reported:
 
 <!-- ![](./fig/hyd-short.png) -->
 
+
+### Test 3: hydrograph replication using LSTMs
+
+More recently in the hydrologic modelling community, there has been an attraction to Long Short-Term Memory (LSTM) networks, as they *"ability to learn long-term dependencies between the provided input and output of the network, which are essential for modelling storage effects"* (Kratzert et.al., 2019).
+
+In this benchmark, Test 2 is replicated only now, the performance of a partially-recurrent Neural Network is compared to an LSTM, in terms of their ability to simulate stream flow hydrographs. The LSTM code is based on a "simple" Python formulation offered [here](https://github.com/nicodjimenez/lstm) but translated to Go.  Note that for testing purposes, the LSTM code has been kept in its original matrix form as the computational efficiency is not the goal of this test, rather its skill in hydrologic prediction. The code's author, [nicodjimenez](https://github.com/nicodjimenez), also offers a nice description of LTSMs [here](https://nicodjimenez.github.io/2014/08/08/lstm.html).
+
+
+
 ## References
+
+Kratzert, F., D. Klotz, C. Brenner, K. Schulz, and M. Herrnegger. 2018. Rainfall–runoff modelling using Long Short-Term Memory (LSTM) networks. Hydrol. Earth Syst. Sci., 22, 6005–6022.
 
 Zhu M-L., M. Fujita and N. Hashimoto. 1994. Application of Neural Networks to Runoff Prediction *in Time Series Analysis in Hydrology and Environmental Engineering ed. K.W. Hippel, A.I. McLeod, U.S. Panu and V.P. Singh*. Water Science adn Technology Library. 474pp.
