@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"time"
-	"zTest/benchmark1/mnist"
+
+	"github.com/maseology/goANN/benchmark1/mnist"
 
 	goann "github.com/maseology/goANN"
 )

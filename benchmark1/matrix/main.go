@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
-	"zTest/benchmark1/mnist"
+
+	"github.com/maseology/goANN/benchmark1/mnist"
 )
 
 // modified from: https://sausheong.github.io/posts/how-to-build-a-simple-artificial-neural-network-with-go/

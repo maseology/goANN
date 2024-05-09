@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
-	"zTest/benchmark2/dset"
-	"zTest/benchmark2/output"
+
+	"github.com/maseology/goANN/benchmark2/dset"
+	"github.com/maseology/goANN/benchmark2/output"
 
 	"github.com/maseology/goHydro/pet"
 	"github.com/maseology/objfunc"

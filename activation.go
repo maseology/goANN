@@ -3,7 +3,8 @@ package goann
 import "math"
 
 func tanhPrime(x float64) float64 {
-	return 1. - x*x
+	t := math.Tanh(x)
+	return 1. - t*t
 }
 
 func sigmoid(x float64) float64 {

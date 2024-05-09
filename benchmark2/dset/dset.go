@@ -24,7 +24,7 @@ func ReadOWRC(csvfp string) ([]time.Time, []dset) {
 	}
 	defer f.Close()
 
-	recs := mmio.LoadCSV(io.Reader(f)) // "Date","Flow","Flag","Tx","Tn","Rf","Sf","Sm","Pa"
+	recs := mmio.LoadCSV(io.Reader(f), 1) // "Date","Flow","Flag","Tx","Tn","Rf","Sf","Sm","Pa"
 	o, ts := make([]dset, 0), make([]time.Time, 0)
 	for rec := range recs {
 		// fmt.Println(rec)

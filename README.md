@@ -33,7 +33,7 @@ Using the test original to [sausheong.github.io](https://sausheong.github.io/pos
 
 A couple of notes on the benchmark code: because the intention was to introduce the reader to ANNs, [sausheong.github.io](https://sausheong.github.io/posts/how-to-build-a-simple-artificial-neural-network-with-go/) provided the __*"vanilla"*__ (read: simplest) form an ANN. Specifically, the code represents a single, 200 neuron, hidden-layer where only weights are adjusted from input to hidden to output.
 
-The graphical version *./benchmark1/graph* used the same ANN structure, only that neuron activation biases have been included as they are standard practice in hydrology (Zhu etal., 1994). This will impact the skill of the ANN.
+The graphical version *./benchmark1/graph* used the same ANN structure, only that neuron activation biases have been included as they are standard practice in hydrology (Zhu et.al., 1994). This will impact the skill of the ANN.
 
 Training was based on 60,000 hand-written digits over 5 "epochs". Testing was made against another 10,000 images. Training and testing were performed 5 times each, average run times taken and overall skill are presented:
 
@@ -76,7 +76,7 @@ Again, the average of 5 runs are reported:
 
 More recently in the hydrologic modelling community, there has been an attraction to Long Short-Term Memory (LSTM) networks, as they *"ability to learn long-term dependencies between the provided input and output of the network, which are essential for modelling storage effects"* (Kratzert et.al., 2019).
 
-In this benchmark, Test 2 is replicated only now, the performance of a partially-recurrent Neural Network is compared to an LSTM, in terms of their ability to simulate stream flow hydrographs. The LSTM code is based on a "simple" Python formulation offered [here](https://github.com/nicodjimenez/lstm) but translated to Go.  Note that for testing purposes, the LSTM code has been kept in its original matrix form as the computational efficiency is not the goal of this test, rather its skill in hydrologic prediction. The code's author, [nicodjimenez](https://github.com/nicodjimenez), also offers a nice description of LTSMs [here](https://nicodjimenez.github.io/2014/08/08/lstm.html).
+In this benchmark, Test 2 is replicated only now, the performance of a partially-recurrent Neural Network is compared to an LSTM, in terms of their ability to simulate stream flow hydrographs. The LSTM code is based on a "simple" Python formulation offered [here](https://github.com/nicodjimenez/lstm) but translated to Go.  Note that for testing purposes, the LSTM code has been kept in its original matrix form as the computational efficiency is not the goal of this test, rather its skill in hydrologic prediction. The code's author, [nicodjimenez](https://github.com/nicodjimenez), also offers a nice description of LTSMs [here](https://nicodjimenez.github.io/2014/08/08/lstm.html). Another resource followed is [here](https://www.geeksforgeeks.org/lstm-derivation-of-back-propagation-through-time/?ref=lbp).
 
 
 

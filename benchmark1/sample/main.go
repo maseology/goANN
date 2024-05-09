@@ -6,7 +6,8 @@ import (
 	"image/png"
 	"log"
 	"os"
-	"zTest/benchmark1/mnist"
+
+	"github.com/maseology/goANN/benchmark1/mnist"
 )
 
 func main() {
